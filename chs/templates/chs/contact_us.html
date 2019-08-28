@@ -1,0 +1,31 @@
+{% extends "chs/base.html" %}
+{% load crispy_forms_tags %}
+  {% block content %}
+    <section class="login-block">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-8 login-sec">
+		        <h2 class="text-center">Contact us</h2>
+                <form role="form" action="thank_you.html" method="post">
+                    <h3><b>Contact us for any non-emergency question you have.</b></h3>
+                    <h3><b>If this is an emergecny please call 911.</b></h3>
+                    <div class="form-group">
+                        {% csrf_token %}
+                        {{form|crispy}}
+                    </div>
+                    <div class="form-check">
+                        <button style="margin-top: 20px; margin-left: 120px; margin-bottom: 50px" type="submit" class="save btn btn-login">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
+
+
+
+
+

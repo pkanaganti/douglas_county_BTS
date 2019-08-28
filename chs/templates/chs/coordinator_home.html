@@ -1,0 +1,35 @@
+{% extends 'chs/co-ordinator_base.html' %}
+{% load staticfiles %}
+{% block content %}
+
+    {% if user.is_authenticated %}
+                <section class="login-block">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-12 login-sec">
+		        <h2 class="text-center">Welcome {{ user.username }}</h2>
+            </div>
+            <div class="col-md-1"></div>
+             <div class="col-md-3">
+                 <div class="thumbnail">
+                     <div class="caption">
+                     </div>
+                     <h2 style="color: steelblue">Click here to Create Event</h2>
+                     <p><a class="btn btn-primary" href="{% url 'chs:event_new' %}" role="button">Add Event</a></p>
+                 </div>
+             </div>
+
+            <div class="col-md-3">
+                 <div class="thumbnail">
+                     <div class="caption">
+                     </div>
+                     <h2 style="color: steelblue">Click here to view Event Summary</h2>
+                     <p><a class="btn btn-primary" href="{% url 'chs:event_list' %}" role="button">Event Summary </a></p>
+                 </div>
+             </div>
+        </div>
+    </div>
+    </section>
+    {% endif %}
+{% endblock %}

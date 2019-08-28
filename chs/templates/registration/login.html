@@ -1,0 +1,58 @@
+<head>
+    <link href="../../static/css/glyphicons.css">
+    <link href="../../static/css/chs.css">
+    <link href="../../static/css/font-awesome.css">
+    <link href="../../static/css/font-awesome.min.css">
+    <link href="../../static/css/bootstrap.min.css">
+</head>
+{% extends "chs/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+    {% if form.errors %}
+        <br xmlns:align-content="http://www.w3.org/1999/xhtml" xmlns:align-content="http://www.w3.org/1999/xhtml"/>
+    <!--<p>Your username and password didn't match. Please try again.</p>-->
+    {% endif %}
+
+    <section class="login-block">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 login-sec">
+		        <h2 class="text-center">Login Now</h2>
+                <form method="post" action="{% url 'login' %}">
+                    <div class="form-group">
+                        {% csrf_token %}
+                        {{form|crispy}}
+                    </div>
+                    <div class="form-check">
+                        <button type="submit" class="btn btn-login">Login</button>
+                        <button class="btn btn-login float-right" href="{% url 'chs:password_reset' %}"> <a href="{% url 'chs:password_reset' %}" style="color: steelblue">Forgot password?</a></button>
+                        <input type="hidden" name="next" value="{{ next }}">
+                    </div>
+                </form>
+            </div>
+            	<div class="col-md-8 banner-sec">
+            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner" role="listbox">
+    <div class="carousel-item active">
+      <img class="d-block img-fluid" src="../../static/images/login.jpg" alt="First slide">
+      <div class="carousel-caption d-none d-md-block">
+        <div class="banner-text">
+            <h2>Welcome to Douglas County Health and Login As</h2>
+            <ul>
+                <li>Administrator</li>
+                <li>Hospital-Nurse</li>
+                <li>Event Co-ordinator</li>
+            </ul>
+        </div>
+  </div>
+    </div>
+
+            </div>
+
+		</div>
+	</div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

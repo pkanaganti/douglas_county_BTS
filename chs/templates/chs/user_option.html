@@ -1,0 +1,44 @@
+{% extends 'chs/admin_base.html' %}
+{% load staticfiles %}
+{% block content %}
+    {% if user.is_authenticated %}
+                        <section class="login-block">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-12 login-sec">
+		        <h2 class="text-center">Manage Users</h2>
+            </div>
+<div class="col-md-1"></div>
+             <div class="col-md-3">
+                 <div class="thumbnail">
+                     <div class="caption">
+                     </div>
+                     <h2 style="color: steelblue">Click here to all Users</h2>
+                     <p><a class="btn btn-login" target = '_self' href="{% url 'chs:users_list' %}" role="button">All Users &raquo;</a></p>
+                 </div>
+             </div>
+
+            <div class="col-md-3">
+                 <div class="thumbnail">
+                     <div class="caption">
+                     </div>
+                     <h2 style="color: steelblue">Click here to Manage Nurse users</h2>
+                     <p><a class="btn btn-login" href="{% url 'chs:nurse_list' %}" role="button">Nurse &raquo;</a></p>
+                 </div>
+             </div>
+
+             <div class="col-md-3">
+                 <div class="thumbnail">
+                     <div class="caption">
+                     </div>
+                     <h2 style="color: steelblue">Click here to manage co-ordinator users</h2>
+                     <p><a class="btn btn-login" href="{% url 'chs:coordinator_list' %}" role="button">Co-ordinator &raquo;</a></p>
+                 </div>
+             </div>
+    </div>
+    </div>
+    </section>
+
+    {% endif %}
+{% endblock %}

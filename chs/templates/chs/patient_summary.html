@@ -1,0 +1,172 @@
+{% extends 'chs/nurse_base.html' %}
+{% load staticfiles %}
+{% block content %}
+
+               <section class="login-block">
+    <div class="container">
+        <div class="row">
+{#            <h2 class="top-menu text-center" >Forgotten your password?</h2>#}
+            <div class="col-md-8 login-sec">
+                <h2 class="text-center">Patient Summary</h2>
+             {% for patient in patient %}
+
+                <div class="row">
+                <div class="col-sm-3 labelfont ">
+                    <label>Patient ID:</label>
+                </div>
+                <div class="col-sm-4">
+                    <span>{{ patient.PatientID}}</span>
+                </div>
+                </div>
+
+                <div class="row">
+                <div class="col-sm-3 labelfont ">
+                    <label>Patient Name:</label>
+                </div>
+                <div class="col-sm-4">
+                    <span>{{ patient.FirstName }} {{ patient.LastName }}</span>
+                </div>
+                </div>
+                <div class="row">
+                <div class="col-sm-3 labelfont ">
+                    <label>Gender:</label>
+                </div>
+                <div class="col-sm-4">
+                    <span>{{patient.Gender }}</span>
+                </div>
+                </div>
+
+                <div class="row">
+                <div class="col-sm-3 labelfont ">
+                    <label>Date of Birth:</label>
+                </div>
+                <div class="col-sm-4">
+                    <span>{{patient.Date_of_Birth| date:"F j, Y"  }}</span>
+                </div>
+                </div>
+
+                 <div class="row">
+                <div class="col-md-3 labelfont ">
+                    <label>Age:</label>
+                </div>
+                <div class="col-md-4">
+                    <span>{{ patient.Date_of_Birth|timesince  }}</span>
+                </div>
+                </div>
+
+
+                <div class="row">
+                <div class="col-sm-3 labelfont ">
+                    <label>Hospital Name:</label>
+                </div>
+                <div class="col-sm-4">
+                    <span>{{ patient.HospitalName }}</span>
+                </div>
+                </div>
+
+
+                 <div class="row">
+                <div class="col-sm-3 labelfont ">
+                    <label>Patient Status:</label>
+                </div>
+                <div class="col-sm-4">
+                    <span>{{ patient.Status}}</span>
+                </div>
+                </div>
+
+
+                <div class="row">
+                <div class="col-sm-3 labelfont ">
+                    <label>Department:</label>
+                </div>
+                <div class="col-sm-4">
+                    <span>{{patient.Department  }}</span>
+                </div>
+                </div>
+
+                 <div class="row">
+                <div class="col-md-3 labelfont ">
+                    <label>Injury Type:</label>
+                </div>
+                <div class="col-md-4">
+                    <span>{{ patient.Injury_type }}</span>
+                </div>
+                </div>
+
+
+                <div class="row">
+                <div class="col-md-3 labelfont ">
+                    <label>Condition on Arrival:</label>
+                </div>
+                <div class="col-md-4">
+                    <span>{{ patient.Condition_on_arrival }}</span>
+                </div>
+                </div>
+
+                <div class="row">
+                <div class="col-sm-3 labelfont ">
+                    <label>Room Number:</label>
+                </div>
+                <div class="col-sm-4">
+                    <span>{{patient.Room_No_If_Admitted}}</span>
+                </div>
+                </div>
+
+                 <div class="row">
+                <div class="col-md-3 labelfont ">
+                    <label>Kin Name:</label>
+                </div>
+                <div class="col-md-4">
+                    <span>{{ patient.Kin_Name }}</span>
+                </div>
+                </div>
+
+
+                <div class="row">
+                <div class="col-md-3 labelfont ">
+                    <label>Relation To Victim:</label>
+                </div>
+                <div class="col-md-4">
+                    <span>{{ patient.Relationship_To_Victim }}</span>
+                </div>
+                </div>
+
+                <div class="row">
+                <div class="col-md-3 labelfont ">
+                    <label>Triage Tag colour:</label>
+                </div>
+                <div class="col-md-4">
+                    <span>{{ patient.Triage_Tag_colour }}</span>
+                </div>
+                </div>
+
+                  <div class="row">
+                <div class="col-md-3 labelfont ">
+                    <label>Disposition Type:</label>
+                </div>
+                <div class="col-md-4">
+                    <span>{{ patient.Disposition_type }}</span>
+                </div>
+                </div>
+
+                <div class="row">
+                <div class="col-md-3 labelfont ">
+                    <label>Disposition Time:</label>
+                </div>
+                <div class="col-md-4">
+                    <span>{{  patient.Disposition_time| date:"F j, Y" }}</span>
+                </div>
+                </div>
+                 <div class="col-md-6"></div>
+                    <div class="form-check">
+                        <a href="{% url 'chs:patient_summary_pdf' pk=patient.pk %}" class="btn btn-login">Generate PDF</a>
+                    </div>
+
+                </div>
+        {% endfor %}
+            </div>
+        </div>
+
+</section>
+
+{% endblock %}

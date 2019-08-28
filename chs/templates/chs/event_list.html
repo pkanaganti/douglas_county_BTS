@@ -1,0 +1,47 @@
+{% extends 'chs/co-ordinator_base.html' %}
+{% load staticfiles %}
+{% block content %}
+
+               <section class="login-block">
+    <div class="container">
+        <div class="row">
+{#            <h2 class="top-menu text-center" >Forgotten your password?</h2>#}
+            <div class="col-md-12 login-sec">
+                <h2 class="text-center">Events List</h2>
+                       <table class="table table-bordered table-hover">
+            <thead>
+            <tr class="bg-info">
+                <th>Event ID</th>
+                <th>Event Name</th>
+                <th>Event Description</th>
+                <th>Event Timestamp</th>
+                <th>Event Location</th>
+                <th>Injury Level</th>
+                <th>Number of Patients</th>
+                <th>Coordinator Name</th>
+                <th colspan="2">Actions</th>
+
+            </tr>
+            </thead>
+            <tbody>
+            {% for event in event %}
+                <tr>
+                    <td>{{ event.EventID }}</td>
+                    <td>{{ event.EventName }}</td>
+                    <td>{{ event.EventDescription }}</td>
+                    <td>{{ event.EventTimestamp }}</td>
+                    <td>{{ event.EventLocation }}</td>
+                    <td>{{event.InjuryLevel}}</td>
+                    <td>{{event.NumberofPatients}}</td>
+                    <td>{{ event.user }}</td>
+                    <td><a href="{% url 'chs:event_edit' pk=event.pk %}" class="btn btn-login">Edit</a></td>
+                    <td><a href="{% url 'chs:event_delete' pk=event.pk %}" onclick="return confirm('Are you sure you want to delete?')" class="btn btn-login">Delete</a></td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

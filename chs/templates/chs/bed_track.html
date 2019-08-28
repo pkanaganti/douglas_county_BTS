@@ -1,0 +1,38 @@
+{% extends 'chs/base.html' %}
+{% load staticfiles %}
+{% block content %}
+            <section class="login-block">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-12 login-sec">
+		        <h2 class="text-center">Summary of Available Beds in hospitals</h2>
+
+                <table class="table table-bordered table-hover">
+            <thead>
+            <tr class="bg-info">
+                <th>Hospital Name</th>
+                <th>Department</th>
+                <th>Total Beds</th>
+                <th>Beds Used</th>
+                <th>Beds Available</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for hospdepartment1 in hospdepartment1 %}
+                <tr>
+                    <td>{{ hospdepartment1.HospitalName }}</td>
+                    <td>{{ hospdepartment1.Department }}</td>
+                    <td>{{ hospdepartment1.TotalBeds }}</td>
+                    <td>{{ hospdepartment1.BedsUsed }}</td>
+                    <td>{{ hospdepartment1.AvailableBeds }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        </div>
+    </div>
+    </div>
+    </section>
+
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends 'chs/co-ordinator_base.html' %}
+ {% block body_block %}
+    <h1>Delete {{ event.name }}?</h1>
+
+    <form method="post">
+        {% csrf_token %}
+        <input type="submit" class="btn btn-danger" value="Delete">
+        <a href="{% url 'chs:home' pk=event.event_number %} ">Cancel</a>
+
+    </form>
+
+{% endblock %}

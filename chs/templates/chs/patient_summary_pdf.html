@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+
+        <div class="page-container">
+
+
+        <table>
+            <tr>
+                <td class="width-2"></td>
+                <td class="width-6 text-center text-bold"><h1 class="top-menu">Douglas County Health</h1></td>
+                <td class="width-2"></td>
+            </tr>
+            <tr>
+                <td class="width-3"></td>
+                <td class="width-6 text-bold"><h1 class="top-menu">Patient summary</h1></td>
+                <td class="width-2"></td>
+            </tr>
+        </table>
+    <table cellpadding="11" class="cell-borders">
+         <tr>
+             <td colspan="2" class="text-bold"><span>Patient ID</span></td>
+             <td colspan="3" class="text-bold"><span>{{ patient.PatientID}}</span></td>
+         </tr>
+        <tr>
+             <td colspan="2" class="text-bold"><span>Patient Name</span></td>
+             <td colspan="3" class="text-bold"><span>{{ patient.FirstName }} {{ patient.LastName }}</span></td>
+         </tr>
+        <tr>
+             <td colspan="2" class="text-bold"><span>Gender</span></td>
+             <td colspan="3" class="text-bold"><span>{{ patient.Gender}}</span></td>
+         </tr>
+        <tr>
+             <td colspan="2" class="text-bold"><span>Date of Birth</span></td>
+             <td colspan="3" class="text-bold"><span>{{patient.Date_of_Birth| date:"F j, Y"  }}</span></td>
+         </tr>
+        <tr>
+             <td colspan="2" class="text-bold"><span>Patient Age</span></td>
+             <td colspan="3" class="text-bold"><span>{{ patient.Date_of_Birth|timesince  }}</span></td>
+         </tr>
+        <tr>
+             <td colspan="2" class="text-bold"><span>Hospital Name</span></td>
+             <td colspan="3" class="text-bold"><span>{{ patient.HospitalName}}</span></td>
+         </tr>
+        <tr>
+             <td colspan="2" class="text-bold"><span>Patient Status</span></td>
+             <td colspan="3" class="text-bold"><span>{{ patient.Status}}</span></td>
+         </tr>
+        <tr>
+             <td colspan="2" class="text-bold"><span>Department</span></td>
+             <td colspan="3" class="text-bold"><span>{{ patient.Department}}</span></td>
+         </tr>
+        <tr>
+             <td colspan="2" class="text-bold"><span>Injury Type</span></td>
+             <td colspan="3" class="text-bold"><span>{{ patient.Injury_type}}</span></td>
+         </tr>
+        <tr>
+             <td colspan="2" class="text-bold"><span>Condition on Arrival</span></td>
+             <td colspan="3" class="text-bold"><span>{{ patient.Condition_on_arrival}}</span></td>
+         </tr>
+        <tr>
+             <td colspan="2" class="text-bold"><span>Admitted Room No</span></td>
+             <td colspan="3" class="text-bold"><span>{{ patient.Room_No_If_Admitted}}</span></td>
+         </tr>
+        <tr>
+             <td colspan="2" class="text-bold"><span>KIN Name</span></td>
+             <td colspan="3" class="text-bold"><span>{{patient.Kin_Name}}</span></td>
+         </tr>  <tr>
+             <td colspan="2" class="text-bold"><span>Relation To Victim</span></td>
+             <td colspan="3" class="text-bold"><span>{{ patient.Relationship_To_Victim }}</span></td>
+         </tr>
+        <tr>
+             <td colspan="2" class="text-bold"><span>Triage Tag colour</span></td>
+             <td colspan="3" class="text-bold"><span>{{patient.Triage_Tag_colour}}</span></td>
+         </tr>
+        <tr>
+             <td colspan="2" class="text-bold"><span>Disposition Type</span></td>
+             <td colspan="3" class="text-bold"><span>{{ patient.Disposition_type}}</span></td>
+         </tr>
+        <tr>
+             <td colspan="2" class="text-bold"><span>Disposition Time</span></td>
+             <td colspan="3" class="text-bold"><span>{{ patient.Disposition_time| date:"F j, Y"}}</span></td>
+         </tr>
+    </table>
+        </div>
+</body>
+</html>
+

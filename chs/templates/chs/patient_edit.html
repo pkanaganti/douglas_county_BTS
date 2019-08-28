@@ -1,0 +1,25 @@
+{% extends 'chs/nurse_base.html' %}
+{% load crispy_forms_tags %}
+{% load staticfiles %}
+{% block content %}
+               <section class="login-block">
+    <div class="container">
+        <div class="row">
+{#            <h2 class="top-menu text-center" >Forgotten your password?</h2>#}
+            <div class="col-md-8 login-sec">
+                <h2 class="text-center">Edit Existing Patient</h2>
+                <form action="." method="post" class="patient-form">
+                    <div class="form-group">
+                        {% csrf_token %}
+                        {{form|crispy}}
+                    </div>
+                    <div class="form-check">
+                        <button type="submit" href="{% url 'chs:patient_list' %}"  class="save btn btn-login">Update</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

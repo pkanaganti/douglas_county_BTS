@@ -1,0 +1,44 @@
+{% extends 'chs/admin_base.html' %}
+{% load staticfiles %}
+{% block content %}
+    {% if user.is_authenticated %}
+        <section class="login-block">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-12 login-sec">
+		        <h2 class="text-center">Welcome {{ user.username }}</h2>
+            </div>
+            <div class="col-md-1"></div>
+             <div class="col-md-3">
+                 <div class="thumbnail">
+                     <div class="caption">
+                     </div>
+                     <h2 style="color: steelblue">Click here to Manage User</h2>
+                     <p><a class="btn btn-primary" href="{% url 'chs:user_option' %}" role="button">View Users </a></p>
+                 </div>
+             </div>
+
+            <div class="col-md-3">
+                 <div class="thumbnail">
+                     <div class="caption">
+                     </div>
+                     <h2 style="color: steelblue">Click here to view Event</h2>
+                     <p><a class="btn btn-primary" href="{% url 'chs:admin_event_list' %}" role="button">View Events </a></p>
+                 </div>
+             </div>
+
+             <div class="col-md-3">
+                 <div class="thumbnail">
+                     <div class="caption">
+                     </div>
+                     <h2 style="color: steelblue">Click here to view Patient</h2>
+                     <p><a class="btn btn-primary" href="{% url 'chs:admin_patient_list' %}" role="button">View Patients </a></p>
+                 </div>
+             </div>
+        </div>
+    </div>
+    </section>
+    {% endif %}
+
+{% endblock %}
